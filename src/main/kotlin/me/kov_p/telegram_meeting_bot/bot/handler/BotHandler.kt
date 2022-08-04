@@ -57,7 +57,6 @@ class BotHandlerImpl(
             text = message,
             replyToMessageId = replyToMessage,
             allowSendingWithoutReply = true,
-            parseMode = ParseMode.MARKDOWN_V2
         )
     }
 }
