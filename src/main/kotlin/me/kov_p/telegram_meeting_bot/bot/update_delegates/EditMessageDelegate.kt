@@ -13,9 +13,9 @@ class EditMessageDelegate(
     }
 
     override fun handleUpdate(updateVo: UpdateVo) {
-        println("message edited")
         when (updateVo) {
             is UpdateVo.EditedMessage -> {
+                println("sending message $updateVo")
                 botHandler.sendMessage(
                     message = System.getenv(EDIT_ALERT_CONFIG_KEY),
                     chatId = ChatId.fromId(updateVo.originalMessage.chatId),
