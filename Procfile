@@ -1,1 +1,1 @@
-web: ./build/install/me.kov_p.telegram_meeting_bot/bin/me.kov_p.telegram-meeting-bot
+web: ./build/install/me.kov_p.telegram-meeting-bot/bin/me.kov_p.telegram-meeting-bot
