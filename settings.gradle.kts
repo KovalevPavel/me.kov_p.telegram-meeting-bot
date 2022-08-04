@@ -1,0 +1,1 @@
+rootProject.name = "me.kov_p.telegram-meeting-bot"
