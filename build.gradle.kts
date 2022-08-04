@@ -50,3 +50,7 @@ dependencies {
     //telegram bot
     implementation ("io.github.kotlin-telegram-bot.kotlin-telegram-bot:telegram:6.0.7")
 }
+
+tasks.create("stage") {
+    dependsOn("installDist")
+}
