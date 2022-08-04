@@ -6,7 +6,7 @@ import me.kov_p.telegram_meeting_bot.bot.handler.BotHandler
 
 class EditMessageDelegate(
     private val botHandler: BotHandler,
-): UpdateEventDelegate {
+) : UpdateEventDelegate {
 
     override fun isDelegateValid(updateVo: UpdateVo): Boolean {
         return updateVo is UpdateVo.EditedMessage
