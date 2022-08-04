@@ -7,10 +7,6 @@ import com.github.kotlintelegrambot.entities.ChatId
 import com.github.kotlintelegrambot.entities.ParseMode
 import com.github.kotlintelegrambot.webhook
 import com.sun.jndi.toolkit.url.Uri
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import me.kov_p.telegram_meeting_bot.database.dao.bot.BotDao
 
 interface BotHandler {
@@ -56,20 +52,12 @@ class BotHandlerImpl(
         chatId: ChatId,
         replyToMessage: Long?
     ) {
-        CoroutineScope(Dispatchers.IO).launch {
-            delay(SEND_MESSAGE_DELAY_MS)
-            println("message -> $message, $chatId, $replyToMessage")
-            bot.sendMessage(
-                chatId = chatId,
-                text = message,
-                replyToMessageId = replyToMessage,
-                allowSendingWithoutReply = true,
-                parseMode = ParseMode.MARKDOWN_V2
-            )
-        }
-    }
-
-    companion object {
-        private const val SEND_MESSAGE_DELAY_MS = 500L
+        bot.sendMessage(
+            chatId = chatId,
+            text = message,
+            replyToMessageId = replyToMessage,
+            allowSendingWithoutReply = true,
+            parseMode = ParseMode.MARKDOWN_V2
+        )
     }
 }
