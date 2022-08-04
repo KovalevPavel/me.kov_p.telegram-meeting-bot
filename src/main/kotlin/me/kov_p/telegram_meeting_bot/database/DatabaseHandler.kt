@@ -9,7 +9,9 @@ interface DatabaseHandler {
 }
 
 class DatabaseHandlerImpl: DatabaseHandler {
-    private val dbUrl = System.getenv("DATABASE_URL")
+    private val dbUrl = System.getenv("JDBC_DATABASE_URL")
+    private val dbUser = System.getenv("JDBC_DATABASE_USERNAME")
+    private val dbPassword = System.getenv("JDBC_DATABASE_PASSWORD")
 
     override fun initDb() {
         Database.connect(hikari())
@@ -19,6 +21,8 @@ class DatabaseHandlerImpl: DatabaseHandler {
         val config = HikariConfig().apply {
             driverClassName = DRIVER_CLASS_NAME
             jdbcUrl = dbUrl
+            username = dbUser
+            password = dbPassword
             maximumPoolSize = MAX_POOL_SIZE
             isAutoCommit = false
             transactionIsolation = TRANSACTION_ISOLATION
