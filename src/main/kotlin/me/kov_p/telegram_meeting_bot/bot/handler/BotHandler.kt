@@ -4,7 +4,6 @@ package me.kov_p.telegram_meeting_bot.bot.handler
 
 import com.github.kotlintelegrambot.bot
 import com.github.kotlintelegrambot.entities.ChatId
-import com.github.kotlintelegrambot.entities.ParseMode
 import com.github.kotlintelegrambot.webhook
 import com.sun.jndi.toolkit.url.Uri
 import me.kov_p.telegram_meeting_bot.database.dao.bot.BotDao
