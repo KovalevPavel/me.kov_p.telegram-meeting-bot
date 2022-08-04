@@ -4,6 +4,7 @@ import io.ktor.server.engine.embeddedServer
 import io.ktor.server.netty.Netty
 import me.kov_p.telegram_meeting_bot.bot.di.botModule
 import me.kov_p.telegram_meeting_bot.bot.handler.BotHandler
+import me.kov_p.telegram_meeting_bot.database.DatabaseHandler
 import me.kov_p.telegram_meeting_bot.database.di.databaseModule
 import me.kov_p.telegram_meeting_bot.plugins.configureBotRouting
 import me.kov_p.telegram_meeting_bot.plugins.configureSerialization
@@ -18,8 +19,10 @@ fun main() {
         )
     }
 
+    val databaseHandler by inject<DatabaseHandler>()
     val botHandler by inject<BotHandler>()
 
+    databaseHandler.initDb()
     botHandler.initBot()
 
     embeddedServer(Netty, port = System.getenv("PORT").toInt()) {
