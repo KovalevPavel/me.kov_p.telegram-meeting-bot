@@ -58,6 +58,7 @@ class BotHandlerImpl(
     ) {
         CoroutineScope(Dispatchers.IO).launch {
             delay(SEND_MESSAGE_DELAY_MS)
+            println("message -> $message, $chatId, $replyToMessage")
             bot.sendMessage(
                 chatId = chatId,
                 text = message,
