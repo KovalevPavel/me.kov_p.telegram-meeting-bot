@@ -13,6 +13,7 @@ class EditMessageDelegate(
     }
 
     override fun handleUpdate(updateVo: UpdateVo) {
+        println("message edited")
         when (updateVo) {
             is UpdateVo.EditedMessage -> {
                 botHandler.sendMessage(

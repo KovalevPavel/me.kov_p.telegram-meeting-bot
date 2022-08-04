@@ -72,6 +72,7 @@ fun Application.configureBotRouting() {
                 else -> return@post
             }
                 .let { update ->
+                    println("update -> $update")
                     delegates.firstOrNull { it.isDelegateValid(update) }
                         ?.handleUpdate(update)
                 }
